@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DiagStore Admin</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="logo">DIAG STORE ADMIN</div>
+      <nav><a href="/">На сайт</a></nav>
+    </header>
+
+    <main class="checkout">
+      <section class="checkout-form-wrap">
+        <h2>Вход администратора</h2>
+        <form id="login-form">
+          <label>Логин <input name="username" required /></label>
+          <label>Пароль <input name="password" type="password" required /></label>
+          <button class="btn-primary" type="submit">Войти</button>
+        </form>
+        <p id="login-status"></p>
+      </section>
+
+      <aside class="order-summary">
+        <h3>Категории и товары</h3>
+        <div id="catalog-preview"></div>
+      </aside>
+    </main>
+
+    <main class="checkout" id="admin-panel" style="display:none;">
+      <section class="checkout-form-wrap">
+        <h2>Добавить категорию</h2>
+        <form id="category-form">
+          <label>Название категории <input name="name" required /></label>
+          <label>Slug <input name="slug" /></label>
+          <button class="btn-primary" type="submit">Добавить категорию</button>
+        </form>
+
+        <h2>Добавить товар</h2>
+        <form id="product-form">
+          <label>Название товара <input name="name" required /></label>
+          <label>Категория
+            <select name="categoryId" id="category-select" required></select>
+          </label>
+          <label>Цена (€) <input name="price" type="number" min="1" required /></label>
+          <label>Изображение URL <input name="image" /></label>
+          <label>Описание <textarea name="description"></textarea></label>
+          <label>Характеристики (через новую строку) <textarea name="features"></textarea></label>
+          <label>AR Code URL <input name="arCodeModelUrl" /></label>
+          <label>AR Note <input name="arCodeNote" /></label>
+          <label><input type="checkbox" name="hasMultiYearLicense" /> Доступна лицензия на несколько лет</label>
+          <label>Доступные сроки лицензии (через запятую, напр. 1,2,3)
+            <input name="licenseOptionsYears" value="1" />
+          </label>
+          <button class="btn-primary" type="submit">Добавить товар</button>
+        </form>
+        <p id="admin-status"></p>
+      </section>
+
+      <aside class="order-summary">
+        <h3>Текущий каталог</h3>
+        <div id="catalog-full"></div>
+      </aside>
+    </main>
+
+    <script src="admin.js"></script>
+  </body>
+</html>
