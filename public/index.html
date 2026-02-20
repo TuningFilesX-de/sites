@@ -1,0 +1,84 @@
+ (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
+diff --git a/public/index.html b/public/index.html
+new file mode 100644
+index 0000000000000000000000000000000000000000..ac65126a9fd3739f23c40f8cd9f5116b8986fbf5
+--- /dev/null
++++ b/public/index.html
+@@ -0,0 +1,74 @@
++<!doctype html>
++<html lang="ru">
++  <head>
++    <meta charset="UTF-8" />
++    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
++    <title>DiagStore — диагностическое оборудование</title>
++    <link rel="stylesheet" href="styles.css" />
++    <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=EUR"></script>
++  </head>
++  <body>
++    <header class="header">
++      <div class="logo">DIAG STORE</div>
++      <nav>
++        <a href="#catalog">Каталог</a>
++        <a href="#checkout">Оформление</a>
++        <a href="#contacts">Контакты</a>
++      </nav>
++    </header>
++
++    <main>
++      <section class="hero">
++        <div>
++          <h1>Каталог диагностического оборудования</h1>
++          <p>Профессиональная техника для автосервисов и частных мастеров.</p>
++        </div>
++      </section>
++
++      <section id="catalog" class="catalog"></section>
++
++      <section class="product-view" id="product-view">
++        <h2>Карточка товара</h2>
++        <div id="product-detail"></div>
++      </section>
++
++      <section id="checkout" class="checkout">
++        <div class="checkout-form-wrap">
++          <h2>1. Детали оплаты</h2>
++          <form id="order-form">
++            <div class="grid two">
++              <label>Имя* <input name="firstName" required /></label>
++              <label>Фамилия* <input name="lastName" required /></label>
++            </div>
++            <label>Страна/регион* <input name="country" required /></label>
++            <label>Адрес* <input name="address" required /></label>
++            <div class="grid two">
++              <label>Почтовый индекс* <input name="postcode" required /></label>
++              <label>Населённый пункт* <input name="city" required /></label>
++            </div>
++            <label>Телефон <input name="phone" /></label>
++            <label>Email* <input type="email" name="email" required /></label>
++            <label>Примечание <textarea name="note"></textarea></label>
++          </form>
++
++          <h2>2. Оплата</h2>
++          <p>Доступна оплата через PayPal.</p>
++          <div id="paypal-button-container"></div>
++          <p id="checkout-status"></p>
++        </div>
++
++        <aside class="order-summary">
++          <h3>Ваш заказ</h3>
++          <div id="summary-items"></div>
++          <p class="total" id="summary-total"></p>
++        </aside>
++      </section>
++    </main>
++
++    <footer id="contacts" class="footer">
++      <p>Контакты: sales@diagstore.com | Telegram: @diagstore</p>
++    </footer>
++
++    <script src="app.js"></script>
++  </body>
++</html>
+ 
+EOF
+)
