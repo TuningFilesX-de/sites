@@ -1,0 +1,28 @@
+ (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
+diff --git a/package.json b/package.json
+new file mode 100644
+index 0000000000000000000000000000000000000000..b44f695e33b6c891584fb39e3c1f68dee209bfbd
+--- /dev/null
++++ b/package.json
+@@ -0,0 +1,18 @@
++{
++  "name": "diag-equipment-store",
++  "version": "1.0.0",
++  "description": "Интернет-магазин диагностического оборудования с PayPal и уведомлениями",
++  "main": "server.js",
++  "scripts": {
++    "start": "node server.js",
++    "dev": "node server.js",
++    "check": "node --check server.js && node --check public/app.js"
++  },
++  "dependencies": {
++    "axios": "^1.7.7",
++    "cors": "^2.8.5",
++    "dotenv": "^16.4.5",
++    "express": "^4.21.1",
++    "nodemailer": "^6.9.16"
++  }
++}
+ 
+EOF
+)
