@@ -1,0 +1,12 @@
+[
+  {
+    "id": "cat-scanners",
+    "name": "Автосканеры",
+    "slug": "avtoskanery"
+  },
+  {
+    "id": "cat-programmers",
+    "name": "Программаторы",
+    "slug": "programmers"
+  }
+]
